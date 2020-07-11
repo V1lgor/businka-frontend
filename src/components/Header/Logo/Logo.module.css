@@ -1,0 +1,10 @@
+.Logo {
+    grid-area: logo;
+    font-size: 72px;
+    color: #7A00A5;
+}
+
+.Logo .LogoCaption {
+    font-size: 36px;
+    color: black;
+}

@@ -1,0 +1,13 @@
+.Slider {
+    grid-area: slider;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.Slider .Slide {
+    height: 300px;
+    width: 100%;
+    background-size: 100% 100%;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}

@@ -1,0 +1,32 @@
+.Navbar {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.Navbar .Title {
+    color: #7A00A5;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 10px;
+}
+
+.Navbar .CategoryList {
+    list-style: none;
+    font-size: 16px;
+}
+
+.Navbar .CategoryList li {
+    padding: 10px;
+
+    border-bottom: 1px solid #ccc;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.Navbar .CategoryList li:hover {
+    background-color: #b600ea;
+    color: #fff;
+    cursor: pointer;
+}

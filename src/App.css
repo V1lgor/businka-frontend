@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  padding: 20px 200px;
+}

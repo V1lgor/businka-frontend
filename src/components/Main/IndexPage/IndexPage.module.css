@@ -1,0 +1,12 @@
+.IndexPage {
+    grid-area: pageContent;
+}
+
+.IndexPage .PageTitle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.IndexPage .PageContent {
+    line-height: 2em;
+}

@@ -1,0 +1,8 @@
+.Footer {
+    grid-area: footer;
+    background-image: linear-gradient(to bottom, #B000BF, #7A00A5);
+
+    display: grid;
+
+    grid-template-areas: "menu contacts social";
+}

@@ -1,0 +1,13 @@
+.Menu {
+    grid-area: menu;
+
+    list-style: none;
+
+    background-image: linear-gradient(to bottom, #B000BF, #7A00A5);
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    margin-bottom: 20px;
+}

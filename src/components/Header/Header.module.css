@@ -1,0 +1,10 @@
+.Header {
+    display: grid;
+    grid-area: header;
+
+    grid-template-areas: "logo productSearch contacts" "menu menu menu" "slider slider slider";
+
+    margin-bottom: 20px;
+
+}
+

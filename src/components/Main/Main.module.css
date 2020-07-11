@@ -1,0 +1,9 @@
+.Main {
+    display: grid;
+    grid-area: main;
+
+    grid-template-areas: "navbar pageContent";
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 40px;
+}
+
