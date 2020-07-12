@@ -1,10 +1,8 @@
 import React from "react";
 
-import styles from './Menu.module.css';
-
 const Menu = () => {
     return (
-        <ul className={styles.Menu}>
+        <ul className="footer__menu">
             <h3>Навигация</h3>
             <li>Главная</li>
             <li>Каталог</li>

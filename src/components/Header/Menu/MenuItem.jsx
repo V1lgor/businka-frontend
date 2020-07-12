@@ -1,10 +1,8 @@
 import React from "react";
 
-import styles from './MenuItem.module.css';
-
 const MenuItem = ({title, href}) => {
     return (
-        <li className={styles.MenuItem}>
+        <li className="header__menu-item">
             <a href={href}>{title}</a>
         </li>
     )

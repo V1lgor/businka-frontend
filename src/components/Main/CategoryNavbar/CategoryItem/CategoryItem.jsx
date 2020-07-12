@@ -1,11 +1,15 @@
 import React from "react";
 
-import styles from './CategoryItem.module.css';
+import SubCategoryList from "./SubCategoryList/SubCategoryList";
 
 const CategoryItem = (props) => {
     return (
-        <li className={styles.CategoryItem}>
-            <a href = {`/category/${props.id}`}>{props.category}</a>
+        <li className="category-navbar__category-item">
+            <a href={`/category/${props.id}`} className="category-navbar__category-link">{props.category.name}</a>
+            {props.category.subCategoryList
+                ? <SubCategoryList categoryList={props.category.subCategoryList}/>
+                : null
+            }
         </li>
     )
 };

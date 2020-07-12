@@ -1,12 +1,12 @@
 import React from "react";
 
-import styles from './Main.module.css';
+
 import CategoryNavbar from "./CategoryNavbar/CategoryNavbar";
 import IndexPage from "./IndexPage/IndexPage";
 
 const Main = () => {
     return (
-        <main className={styles.Main}>
+        <main className="main">
             <CategoryNavbar/>
             <IndexPage/>
         </main>

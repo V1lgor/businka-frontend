@@ -1,12 +1,11 @@
 import React from 'react';
 
-import styles from './News.module.css';
-import NewsItem from "./NewsItem/NewsItem";
+import NewsItem from "./NewsItem";
 
 const News = () => {
     return (
-        <section className={styles.News}>
-            <h3>Новости сайта</h3>
+        <section className="news">
+            <h3 className="news__title">Новости сайта</h3>
             <NewsItem/>
             <NewsItem/>
         </section>

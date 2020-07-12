@@ -1,7 +1,7 @@
 import React from "react";
 
-import styles from './Menu.module.css';
-import MenuItem from "./MenuItem/MenuItem";
+
+import MenuItem from "./MenuItem";
 
 const Menu = () => {
 
@@ -14,7 +14,7 @@ const Menu = () => {
     ];
 
     return (
-        <ul className={styles.Menu}>
+        <ul className="header__menu">
             {menuItemList.map((menuItem, index) => <MenuItem key = {index} title={menuItem.title} href={menuItem.href}/>)}
         </ul>
     )

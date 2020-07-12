@@ -1,13 +1,11 @@
 import React from "react";
 
-import styles from './NewsItem.module.css';
-
 const NewsItem = () => {
     return (
-        <div className={styles.NewsItem}>
-            <h4 className={styles.Title}>Какой-то заголовок</h4>
-            <p className={styles.AddDate}>Дата: 12.07.2020 19:16</p>
-            <p className={styles.TextPreview}>
+        <div className="news-item">
+            <h4 className="news-item__title">Какой-то заголовок</h4>
+            <p className="news-item__add-date">Дата: 12.07.2020 19:16</p>
+            <p className="news-item__preview">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, iusto, ut. Accusamus aliquam amet
                 animi assumenda at aut beatae consectetur consequatur cupiditate, deleniti dignissimos dolor dolorem
                 eius eveniet excepturi expedita fugit hic id illo ipsum itaque iure labore mollitia obcaecati officiis
