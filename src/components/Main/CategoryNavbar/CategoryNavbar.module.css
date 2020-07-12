@@ -14,19 +14,3 @@
     list-style: none;
     font-size: 16px;
 }
-
-.Navbar .CategoryList li {
-    padding: 10px;
-
-    border-bottom: 1px solid #ccc;
-
-    text-align: center;
-
-    transition: 0.3s;
-}
-
-.Navbar .CategoryList li:hover {
-    background-color: #b600ea;
-    color: #fff;
-    cursor: pointer;
-}

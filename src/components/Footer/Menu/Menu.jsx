@@ -4,7 +4,8 @@ import styles from './Menu.module.css';
 
 const Menu = () => {
     return (
-        <ul>
+        <ul className={styles.Menu}>
+            <h3>Навигация</h3>
             <li>Главная</li>
             <li>Каталог</li>
             <li>Новости</li>

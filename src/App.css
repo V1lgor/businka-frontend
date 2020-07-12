@@ -2,9 +2,32 @@
   margin: 0;
   padding: 0;
 }
+html {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+}
 
 .App {
   display: grid;
+  min-height: 100vh;
   grid-template-areas: "header" "main" "footer";
-  padding: 20px 200px;
+  grid-template-rows: auto 1fr auto;
+
+  width: 80%;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #7A00A5;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #bd2592;
 }

@@ -4,6 +4,7 @@ import styles from './IndexPage.module.css';
 import News from "./News/News";
 
 const IndexPage = () => {
+    document.title = "Бусинка - магазин товаров для рукоделия";
     return (
         <div className={styles.IndexPage}>
             <h2 className={styles.PageTitle}>Добро пожаловать в интернет-магазин товаров для рукоделия "Бусинка"!</h2>

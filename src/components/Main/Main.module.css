@@ -4,6 +4,7 @@
 
     grid-template-areas: "navbar pageContent";
     grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto;
     grid-gap: 40px;
 }
 
