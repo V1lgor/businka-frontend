@@ -29,7 +29,7 @@ const CategoryList = () => {
 
     return (
         <ul className="category-navbar__category-list">
-            {categoryList.map((category, index) => <CategoryItem category={category} id={index + 1}/>)}
+            {categoryList.map((category, index) => <CategoryItem key={index} category={category} id={index + 1}/>)}
         </ul>
     )
 };

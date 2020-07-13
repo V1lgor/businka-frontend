@@ -2,7 +2,7 @@ import React from "react";
 
 import News from "./News/News";
 
-const IndexPage = () => {
+const IndexPage = (props) => {
     document.title = "Бусинка - магазин товаров для рукоделия";
     return (
         <div className="page-content">
@@ -12,7 +12,7 @@ const IndexPage = () => {
                 assumenda, dolor dolore fuga fugiat illum in magnam molestiae necessitatibus praesentium quas quis
                 repellat soluta tempore vel veritatis?
             </p>
-            <News/>
+            <News newsList = {props.state.newsList}/>
         </div>
     )
 };
