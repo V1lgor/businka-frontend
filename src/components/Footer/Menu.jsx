@@ -1,14 +1,14 @@
 import React from "react";
 
-const Menu = () => {
+const Menu = (props) => {
     return (
         <ul className="footer__menu">
             <h3>Навигация</h3>
-            <li>Главная</li>
-            <li>Каталог</li>
-            <li>Новости</li>
-            <li>Оплата и доставка</li>
-            <li>О нас</li>
+            {props.menuItemList.map((menuItem, index) => {
+                return <li key = {index}>
+                    <a href={menuItem.href}>{menuItem.title}</a>
+                </li>
+            })}
         </ul>
     );
 };

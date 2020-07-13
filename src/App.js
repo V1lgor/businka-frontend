@@ -5,15 +5,15 @@ import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+function App(props) {
     return (
         <BrowserRouter>
             <div className={"app"}>
-                <Header/>
+                <Header state={{menuItemList: props.state.menuItemList}}/>
 
-                <Main/>
+                <Main state={{mainContent: props.state.mainContent}}/>
 
-                <Footer/>
+                <Footer state={{menuItemList: props.state.menuItemList}}/>
             </div>
         </BrowserRouter>
     );

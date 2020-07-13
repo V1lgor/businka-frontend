@@ -186,6 +186,11 @@ body {
   color: #fff;
 }
 
+.footer__menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .footer-social {
   justify-self: center;
 }

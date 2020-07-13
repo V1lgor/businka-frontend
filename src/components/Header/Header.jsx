@@ -5,7 +5,7 @@ import ProductSearch from "./ProductSearch";
 import Contacts from "./Contacts";
 import Menu from "./Menu/Menu";
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className="header">
             <Logo/>
@@ -14,7 +14,7 @@ const Header = () => {
 
             <Contacts/>
 
-            <Menu/>
+            <Menu menuItemList = {props.state.menuItemList}/>
         </header>
     );
 };
