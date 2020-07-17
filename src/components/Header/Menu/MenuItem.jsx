@@ -1,9 +1,10 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 const MenuItem = ({title, href}) => {
     return (
         <li className="header__menu-item">
-            <a href={href}>{title}</a>
+            <NavLink to={href}>{title}</NavLink>
         </li>
     )
 };

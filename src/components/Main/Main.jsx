@@ -5,6 +5,7 @@ import CategoryNavbar from "./CategoryNavbar/CategoryNavbar";
 import IndexPage from "./IndexPage";
 import {Route, Switch} from "react-router-dom";
 import NewsItemPageContainer from "./News/NewsItemPageContainer";
+import CatalogPage from "./CatalogPage";
 
 const Main = (props) => {
 
@@ -12,10 +13,13 @@ const Main = (props) => {
         <main className="main">
             <CategoryNavbar/>
             <Switch>
+                <Route path = "/catalog">
+                    <CatalogPage/>
+                </Route>
                 <Route path="/news/:newsItemId" component = {NewsItemPageContainer}/>
 
                 <Route exact path="/">
-                    <IndexPage state={{newsList: props.state.mainContent.newsList, getNewsList: props.state.getNewsList}}/>
+                    <IndexPage/>
                 </Route>
             </Switch>
         </main>
