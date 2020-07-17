@@ -1,6 +1,7 @@
 import React from 'react';
 
 import NewsItem from "./NewsItem";
+import PaginationControls from "./PaginationControls/PaginationControls";
 
 const News = (props) => {
     return (
@@ -13,6 +14,8 @@ const News = (props) => {
                                  date={newsItem.date}
                                  text={newsItem.text}/>
             })}
+            <PaginationControls pageCount={props.pageCount} currentPage={props.currentPage}
+            onItemClick = {props.setCurrentPage}/>
         </section>
     );
 };

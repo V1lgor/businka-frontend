@@ -1,8 +1,8 @@
 import React from "react";
 
-import News from "./News/News";
+import NewsContainer from "./News/NewsContainer";
 
-const IndexPage = (props) => {
+const IndexPage = () => {
     document.title = "Бусинка - магазин товаров для рукоделия";
     return (
         <div className="page-content">
@@ -12,7 +12,7 @@ const IndexPage = (props) => {
                 assumenda, dolor dolore fuga fugiat illum in magnam molestiae necessitatibus praesentium quas quis
                 repellat soluta tempore vel veritatis?
             </p>
-            <News newsList = {props.state.newsList}/>
+            <NewsContainer/>
         </div>
     )
 };

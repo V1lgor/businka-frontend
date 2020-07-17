@@ -298,6 +298,7 @@ body {
 
 .news {
   margin-top: 20px;
+  margin-bottom: 20px;
   line-height: 2em;
 }
 
@@ -327,4 +328,31 @@ body {
 
 .news-item__preview {
   margin-bottom: 10px;
+}
+
+/*======================= Pagination styles =========================*/
+.pagination-controls {
+  text-align: center;
+}
+.pagination-controls__item {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ccc;
+  text-align: center;
+  margin-left: -1px;
+  transition: 0.3s;
+}
+.pagination-controls__item-text{
+  vertical-align: middle;
+}
+.pagination-controls__item.active {
+  background-color: #7A00A5;
+  color: #fff;
+}
+
+.pagination-controls__item:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #bd2592;
 }

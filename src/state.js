@@ -1,3 +1,10 @@
+import axios from 'axios';
+
+let getNewsList = () => {
+    return axios.get('http://localhost:8080/news')
+        .then(response => response.data)
+};
+
 let state = {
     menuItemList: [
         {title: "Главная", href: "/"},
@@ -43,7 +50,8 @@ let state = {
                 subCategoryList: null
             },
         ]
-    }
+    },
+    getNewsList: getNewsList
 };
 
 export default state;
