@@ -7,9 +7,11 @@ const ProductList = (props) => {
         <div className="product-list">
             {props.productList.map(product => {
                 return <ProductCard id={product.id}
+                                    imageURL={product.imageURL}
                                     name={product.name}
                                     price={product.price}
-                                    code={product.code}/>
+                                    code={product.code}
+                                    key={product.id}/>
             })}
         </div>
     )
