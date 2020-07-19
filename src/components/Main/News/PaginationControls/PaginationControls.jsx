@@ -69,10 +69,9 @@ const PaginationControls = (props) => {
                 if (pageNumber === SKIP_PAGES) return <span className="pagination-controls__item">...</span>;
                 return <PaginationControlItem pageNumber={pageNumber}
                                               key = {pageNumber}
-                                              active={pageNumber === props.currentPage}
+                                              active={pageNumber === props.currentPage + 1}
                                               onClick = {() => {
-                                                  console.log("CLICKED");
-                                                  props.onItemClick(pageNumber)
+                                                  props.onItemClick(pageNumber - 1)
                                               }}/>
             })}
         </div>

@@ -17,7 +17,6 @@ let NewsContainer = (props) => {
 let mapStateToProps = (state) => {
     return {
         newsList: state.newsReducer.newsList,
-        totalNewsCount: state.newsReducer.totalNewsCount,
         pageCount: Math.ceil(state.newsReducer.totalNewsCount / state.newsReducer.pageSize),
         currentPage: state.newsReducer.currentPage
     }

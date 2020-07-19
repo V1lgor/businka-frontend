@@ -6,29 +6,6 @@ import CategoryItem from "./CategoryItem/CategoryItem";
 
 const CategoryList = () => {
 
-    /*const categoryList = [
-        {
-            name: "Лента",
-            subCategoryList: ["Лента атласная", "Лента репсовая"]
-        },
-        {
-            name: "Тычинки",
-            subCategoryList: null
-        },
-        {
-            name: "Вышивка",
-            subCategoryList: ["Наборы для вышивания", "Нитки", "Иглы"]
-        },
-        {
-            name: "Фурнитура",
-            subCategoryList: ["Магниты", "Заколки", "Детали"]
-        },
-        {
-            name: "Флористика",
-            subCategoryList: null
-        },
-    ];*/
-
     let [categoryList, setCategoryList] = useState([]);
 
     useEffect(() => {

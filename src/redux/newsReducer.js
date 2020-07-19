@@ -13,7 +13,7 @@ const initialState = {
     newsList: [],
     pageSize: 5,
     totalNewsCount: 0,
-    currentPage: 1,
+    currentPage: 0,
     currentNewsItem: {}
 };
 
@@ -22,29 +22,35 @@ export const newsReducer = (state = initialState, action) => {
         case GET_NEWS_LIST:
             console.log(GET_NEWS_LIST);
             return state.newsList;
+
         case SET_NEWS_LIST:
             console.log(SET_NEWS_LIST);
             return Object.assign({}, state, {
                 newsList: action.newsList
             });
+
         case GET_CURRENT_NEWS_ITEM:
             console.log(GET_CURRENT_NEWS_ITEM);
             return state.currentNewsItem;
+
         case SET_CURRENT_NEWS_ITEM:
             console.log(SET_CURRENT_NEWS_ITEM);
             return Object.assign({}, state, {
                 currentNewsItem: action.newsItem
             });
+
         case SET_TOTAL_NEWS_COUNT:
             console.log(SET_TOTAL_NEWS_COUNT);
             return Object.assign({}, state, {
                 totalNewsCount: action.newsCount
             });
+
         case SET_CURRENT_PAGE:
             console.log(SET_CURRENT_PAGE);
             return Object.assign({}, state, {
                 currentPage: action.pageNumber
             });
+
         default:
             return state;
     }
@@ -86,8 +92,8 @@ export const getTotalNewsCount = () => (dispatch) => {
 
 export const getNewsList = () => (dispatch, getState) => {
     const pageSize = getState().newsReducer.pageSize;
-    const offset = pageSize * (getState().newsReducer.currentPage - 1);
-    axios.get(`http://localhost:8080/news?count=${pageSize}&offset=${offset}`)
+    const currentPage = getState().newsReducer.currentPage;
+    axios.get(`http://localhost:8080/news?page=${currentPage}&size=${pageSize}`)
         .then(response => response.data)
         .then(newsList => dispatch(setNewsList(newsList)));
 };

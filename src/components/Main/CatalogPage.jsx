@@ -1,12 +1,12 @@
 import React from 'react';
-import ProductListContainer from "./ProductList/ProductListContainer";
+import CatalogContainer from "./CatalogContainer";
 
 const CatalogPage = () => {
   document.title = "Каталог товаров";
   return (
       <div className="page-content">
           <h2 className="page-content__page-title">Каталог товаров</h2>
-          <ProductListContainer/>
+          <CatalogContainer/>
       </div>
   )
 };
