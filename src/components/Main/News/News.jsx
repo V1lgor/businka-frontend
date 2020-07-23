@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NewsItem from "./NewsItem";
-import PaginationControls from "./PaginationControls/PaginationControls";
+import PaginationControls from "../../common/PaginationControls/PaginationControls";
 
 const News = (props) => {
     return (
