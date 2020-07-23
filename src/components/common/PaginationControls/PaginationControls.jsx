@@ -29,7 +29,6 @@ const PaginationControls = (props) => {
             const endPage = Math.min(pageCount - 1, currentPage + 1);
 
             let pageList = range(startPage, endPage);
-            console.log(pageList);
 
             const hasLeftSpill = startPage > 2;
             const hasRightSpill = (pageCount - endPage) > 1;
