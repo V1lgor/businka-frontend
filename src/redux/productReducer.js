@@ -1,18 +1,22 @@
 import axios from 'axios';
+import {normalize} from 'normalizr';
+import Product from "./entity/productEntity";
 
 const GET_PRODUCT_LIST = "GET_PRODUCT_LIST";
 const SET_PRODUCT_LIST = "SET_PRODUCT_LIST";
 
 const SET_TOTAL_PRODUCT_COUNT = "SET_TOTAL_PRODUCT_COUNT";
-
 const SET_CURRENT_PRODUCT_PAGE = "SET_CURRENT_PRODUCT_PAGE";
 
 const SET_SELECTED_CATEGORY = "SET_SELECTED_CATEGORY";
 
 const initialState = {
-    productList: [],
+    productList: {
+        products: {},
+        idList: []
+    },
     currentPage: 0,
-    pageSize: 3,
+    pageSize: 25,
     totalProductCount: 0,
     selectedCategory: {}
 };
@@ -20,25 +24,20 @@ const initialState = {
 export const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_PRODUCT_LIST:
-            console.log(GET_PRODUCT_LIST);
             return state.productList;
         case SET_PRODUCT_LIST:
-            console.log(SET_PRODUCT_LIST);
             return Object.assign({}, state, {
                 productList: action.productList
             });
         case SET_TOTAL_PRODUCT_COUNT:
-            console.log(SET_TOTAL_PRODUCT_COUNT);
             return Object.assign({}, state, {
                 totalProductCount: action.totalProductCount
             });
         case SET_CURRENT_PRODUCT_PAGE:
-            console.log(SET_CURRENT_PRODUCT_PAGE);
             return Object.assign({}, state, {
                 currentPage: action.pageNumber
             });
         case SET_SELECTED_CATEGORY:
-            console.log(SET_SELECTED_CATEGORY);
             return Object.assign({}, state, {
                 selectedCategory: action.category
             });
@@ -47,11 +46,14 @@ export const productReducer = (state = initialState, action) => {
     }
 };
 
-export const setProductList = (productList) => {
-  return {
-      type: SET_PRODUCT_LIST,
-      productList: productList
-  }
+export const setProductList = ({entities, result}) => {
+    return {
+        type: SET_PRODUCT_LIST,
+        productList: {
+            products: entities.product,
+            idList: result
+        }
+    }
 };
 
 export const setTotalProductCount = (totalProductCount) => {
@@ -75,8 +77,8 @@ export const setSelectedCategory = (category) => {
     }
 };
 
+
 export const setCurrentPage = (pageNumber) => (dispatch) => {
-    console.log("OK");
     dispatch(setCurrentPageAction(pageNumber));
 };
 
@@ -92,7 +94,9 @@ export const getProductList = () => (dispatch, getState) => {
 
     axios.get(`http://localhost:8080/product?page=${currentPage}&size=${pageSize}`)
         .then(response => response.data)
-        .then(productList => dispatch(setProductList(productList)))
+        .then(productList => {
+            dispatch(setProductList(normalize(productList, [Product])))
+        })
 };
 
 export const getProductCountInCategory = (categoryId) => (dispatch) => {
@@ -115,5 +119,5 @@ export const getProductListByCategoryId = (categoryId) => (dispatch, getState) =
 
     axios.get(`http://localhost:8080/category/${categoryId}/products?page=${currentPage}&size=${pageSize}`)
         .then(response => response.data)
-        .then(productList => dispatch(setProductList(productList)))
-};
+        .then(productList => dispatch(setProductList(normalize(productList, [Product]))));
+}
