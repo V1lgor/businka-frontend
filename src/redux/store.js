@@ -3,8 +3,9 @@ import {newsReducer} from "./newsReducer";
 
 import thunkMiddleware from 'redux-thunk';
 import {productReducer} from "./productReducer";
+import {cartReducer} from "./cartReducer";
 
-let reducerList = combineReducers({newsReducer, productReducer});
+let reducerList = combineReducers({newsReducer, productReducer, cartReducer});
 
 let store = createStore(reducerList,
     applyMiddleware(thunkMiddleware));
