@@ -20,33 +20,27 @@ const initialState = {
 export const newsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_NEWS_LIST:
-            console.log(GET_NEWS_LIST);
             return state.newsList;
 
         case SET_NEWS_LIST:
-            console.log(SET_NEWS_LIST);
             return Object.assign({}, state, {
                 newsList: action.newsList
             });
 
         case GET_CURRENT_NEWS_ITEM:
-            console.log(GET_CURRENT_NEWS_ITEM);
             return state.currentNewsItem;
 
         case SET_CURRENT_NEWS_ITEM:
-            console.log(SET_CURRENT_NEWS_ITEM);
             return Object.assign({}, state, {
                 currentNewsItem: action.newsItem
             });
 
         case SET_TOTAL_NEWS_COUNT:
-            console.log(SET_TOTAL_NEWS_COUNT);
             return Object.assign({}, state, {
                 totalNewsCount: action.newsCount
             });
 
         case SET_CURRENT_PAGE:
-            console.log(SET_CURRENT_PAGE);
             return Object.assign({}, state, {
                 currentPage: action.pageNumber
             });
