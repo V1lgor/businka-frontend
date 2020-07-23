@@ -7,6 +7,7 @@ import {
     getProductListByCategoryId,
     setCurrentPage
 } from "../../redux/productReducer";
+import {addProductToCart, removeProductFromCart} from "../../redux/cartReducer";
 
 const CategoryProductListContainer = (props) => {
 
@@ -21,14 +22,24 @@ const CategoryProductListContainer = (props) => {
 
     useEffect(() => props.getCategoryById(categoryId), [categoryId]);
 
+    let getProductListWithCountInCart = () => {
+        return props.productList.idList.map(id => {
+            let product = props.productList.products[id];
+            if (props.cartProductList.products[id]) product.count = props.cartProductList.products[id].count;
+            else delete product.count;
+            return product;
+        })
+    };
 
     return (
         <div className="page-content">
             <h2 className="page-content__page-title">Просмотр товаров в категории: {props.selectedCategory.name}</h2>
-            <ProductList productList={props.productList}
+            <ProductList productList={getProductListWithCountInCart()}
                          pageCount={props.pageCount}
                          currentPage={props.currentPage}
-                         onPaginationClick={props.setCurrentPage}/>
+                         onPaginationClick={props.setCurrentPage}
+                         addProductToCart={props.addProductToCart}
+                         removeProductFromCart={props.removeProductFromCart}/>
         </div>
 
     )
@@ -37,6 +48,7 @@ const CategoryProductListContainer = (props) => {
 const mapStateToProps = (state) => {
     return {
         productList: state.productReducer.productList,
+        cartProductList: state.cartReducer.productList,
         pageCount: Math.ceil(state.productReducer.totalProductCount / state.productReducer.pageSize),
         currentPage: state.productReducer.currentPage,
         selectedCategory: state.productReducer.selectedCategory
@@ -47,6 +59,8 @@ export default connect(mapStateToProps, {
     getProductListByCategoryId,
     getProductCountInCategory,
     getCategoryById,
-    setCurrentPage
+    setCurrentPage,
+    addProductToCart,
+    removeProductFromCart
 })
 (CategoryProductListContainer);
