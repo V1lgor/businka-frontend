@@ -10,7 +10,10 @@ html {
 body {
     min-height: 100vh;
 }
-
+button {
+    outline: none;
+    border: none;
+}
 .app {
     display: grid;
     min-height: 100vh;
@@ -30,8 +33,14 @@ body {
     transition: 0.3s;
 }
 
+.btn.big {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
 .btn:hover {
     background-color: #bd2592;
+    cursor: pointer;
 }
 
 .link {
@@ -42,6 +51,24 @@ body {
 .link:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.form {
+
+}
+
+.form__input-block {
+    margin-bottom: 20px;
+}
+.form__input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form__label {
+    display: block;
+    margin-bottom: 10px;
 }
 /* =================== Social icons block styles ==========================================*/
 .social-links__social-icon-container {
@@ -148,7 +175,7 @@ body {
     display: inline-block;
 }
 
-.header__menu-item a {
+.header__link {
     text-decoration: none;
     color: #fff;
     display: block;
@@ -168,7 +195,7 @@ body {
     cursor: pointer;
 }
 
-.header__menu-item a:hover {
+.header__link:hover {
     background-color: #c700ff;
     background-image: none;
 }
@@ -186,9 +213,15 @@ body {
     border: 1px solid black;
     top: 41px;
     right: 0;
-
 }
 
+.header__total-sum {
+    margin-bottom: 20px;
+}
+
+.header__clear-cart {
+    margin-right: 20px;
+}
 .example-enter {
     opacity: 0;
 }
@@ -524,10 +557,40 @@ body {
 
 /*======================= Cart table styles ===============*/
 .cart-product-table {
+    width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 .cart-product-table__cell {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     padding: 5px 10px;
+}
+
+/*========================== Order page =========================*/
+
+.order-page {
+    padding: 0 50px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "page-title page-title" "order-form order-product-table";
+}
+
+.order-page__page-title {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-area: page-title;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-page__order-form {
+    grid-area: order-form;
+}
+
+.order-page__order-product-table {
+    grid-area: order-product-table;
 }

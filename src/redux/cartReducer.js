@@ -3,6 +3,7 @@ const TOGGLE_CART_PREVIEW = "TOGGLE_CART_PREVIEW";
 const ADD_PRODUCT_TO_CART = "ADD_PRODUCT_TO_CART";
 const REMOVE_PRODUCT_FROM_CART = "REMOVE_PRODUCT_FROM_CART";
 const CLEAR_CART = "CLEAR_CART";
+const DISABLE_CART_PREVIEW = "DISABLE_CART_PREVIEW";
 
 let initialState = {
     cartPreviewVisible: false,
@@ -18,6 +19,12 @@ export const cartReducer = (state = initialState, action) => {
         case TOGGLE_CART_PREVIEW:
             return Object.assign({}, state, {
                 cartPreviewVisible: !state.cartPreviewVisible
+            });
+
+        case DISABLE_CART_PREVIEW:
+            console.log(DISABLE_CART_PREVIEW);
+            return Object.assign({}, state, {
+                cartPreviewVisible: false
             });
 
         case ADD_PRODUCT_TO_CART: {
@@ -107,6 +114,11 @@ export const clearCart = () => {
     }
 };
 
+export const disableCartPreview = () => {
+    return {
+        type: DISABLE_CART_PREVIEW
+    }
+};
 
 export const addProductToCart = (product) => (dispatch) => {
     dispatch(addProductToCartAction(product));
