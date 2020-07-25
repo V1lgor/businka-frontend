@@ -2,20 +2,27 @@ import React, {useEffect} from "react";
 import OrderPage from "./OrderPage";
 import {disableCartPreview} from "../../../redux/cartReducer";
 import {connect} from "react-redux";
+import {getRegionList} from "../../../redux/orderReducer";
 
 const OrderPageContainer = (props) => {
-    useEffect(() => {props.disableCartPreview()}, [props.cartPreviewVisible]);
+    console.log(props);
+    useEffect(() => {
+        props.disableCartPreview()
+    }, [props.cartPreviewVisible]);
+    useEffect(() => {
+        props.getRegionList()
+    }, [props.getRegionList]);
 
-    return <OrderPage/>
+    return <OrderPage regionList={props.regionList.idList.map(id => props.regionList.regions[id])}/>
 };
-const mapStateToProps = () => {
-    return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
     return {
-        disableCartPreview: () => dispatch(disableCartPreview())
-    }
+        regionList: state.orderReducer.regionList
+    };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderPageContainer);
+
+export default connect(mapStateToProps, {
+    disableCartPreview,
+    getRegionList
+})(OrderPageContainer);

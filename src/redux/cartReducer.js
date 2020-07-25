@@ -114,10 +114,10 @@ export const clearCart = () => {
     }
 };
 
-export const disableCartPreview = () => {
-    return {
+export const disableCartPreview = () => (dispatch) => {
+    return dispatch({
         type: DISABLE_CART_PREVIEW
-    }
+    })
 };
 
 export const addProductToCart = (product) => (dispatch) => {

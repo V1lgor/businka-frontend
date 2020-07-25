@@ -6,7 +6,7 @@ const OrderPage = (props) => {
     return (
         <div className="order-page">
             <h2 className="order-page__page-title">Оформление заказа</h2>
-            <OrderForm/>
+            <OrderForm regionList={props.regionList}/>
             <CartTableContainer/>
         </div>
     )

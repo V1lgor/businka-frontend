@@ -14,9 +14,7 @@ const OrderForm = (props) => {
             <div className="form__input-block">
                 <label className="form__label">Регион доставки:</label>
                 <select className="form__input" name="" id="">
-                    <option value="">Саратовская область</option>
-                    <option value="">Краснодарский край</option>
-                    <option value="">Московская область</option>
+                    {props.regionList.map(region => <option value={region.id}>{region.name}</option>)}
                 </select>
             </div>
             <div className="form__input-block">
