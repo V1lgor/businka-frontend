@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {getNewsList, getTotalNewsCount, setCurrentPage} from "../../../redux/newsReducer";
+import {getNewsList, getTotalNewsCount, setCurrentPage} from "../../../store/newsReducer";
 import React, {useEffect} from "react";
 import News from "./News";
 

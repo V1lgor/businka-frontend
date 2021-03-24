@@ -1,0 +1,23 @@
+.Notification {
+    padding: 16px 32px;
+    margin-bottom: 16px;
+    text-align: center;
+    box-shadow: 0 0 5px 0 #ccc;
+    border-radius: 16px;
+}
+
+
+.Success {
+    background-color: #51ba1e;
+    color: #fff;
+}
+
+.Error {
+    background-color: #ee1e4f;
+    color: #fff;
+}
+
+.Normal {
+    background-color: #fff;
+    color: black;
+}

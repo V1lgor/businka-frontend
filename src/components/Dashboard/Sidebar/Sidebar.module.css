@@ -1,0 +1,26 @@
+.Sidebar {
+    grid-area: sidebar;
+    background-color: #3498db;
+    color: #fff;
+    height: 100vh;
+}
+
+.Menu {
+    list-style: none;
+}
+
+.MenuItem {
+    border-bottom: 1px solid #ccc;
+
+}
+.MenuItem a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.MenuItem a:hover {
+    background-color: #3e88ff;
+}

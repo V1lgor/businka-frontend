@@ -9,6 +9,7 @@ html {
 
 body {
     min-height: 100vh;
+    font-family: "Roboto";
 }
 button {
     outline: none;
@@ -22,6 +23,24 @@ button {
 
     width: 80%;
     margin: 0 auto;
+}
+
+.fade-appear {
+    opacity: 0;
+}
+
+.fade-appear-active {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
 }
 
 .btn {

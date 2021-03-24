@@ -1,0 +1,9 @@
+.ProductTable {
+    border-collapse: collapse;
+}
+
+.ProductTable th, .ProductTable td {
+    padding: 8px 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+}

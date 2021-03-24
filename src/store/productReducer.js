@@ -99,6 +99,15 @@ export const getProductList = () => (dispatch, getState) => {
         })
 };
 
+export const getFullProductList = () => {
+    console.log("OK");
+    return (dispatch) => {
+        axios.get("http://localhost:8080/product")
+            .then(response => response.data)
+            .then(productList => dispatch(setProductList(normalize(productList, [Product]))));
+    }
+}
+
 export const getProductCountInCategory = (categoryId) => (dispatch) => {
     axios.head(`http://localhost:8080/category/${categoryId}/products`)
         .then(response => parseInt(response.headers["x-total-count"]))

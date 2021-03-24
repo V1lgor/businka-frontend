@@ -1,0 +1,7 @@
+.Dashboard {
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-areas: "sidebar dashboard";
+    grid-gap: 32px;
+
+}

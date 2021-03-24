@@ -1,0 +1,9 @@
+.CategoryTable {
+    border-collapse: collapse;
+}
+
+.CategoryTable th, .CategoryTable td {
+    padding: 8px 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+}

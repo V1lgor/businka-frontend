@@ -1,0 +1,8 @@
+.CategoryDeleteWarning {
+
+}
+
+.Buttons {
+    display: flex;
+    justify-content: space-between;
+}

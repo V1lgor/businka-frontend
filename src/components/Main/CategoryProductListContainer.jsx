@@ -6,8 +6,8 @@ import {
     getProductCountInCategory,
     getProductListByCategoryId,
     setCurrentPage
-} from "../../redux/productReducer";
-import {addProductToCart, removeProductFromCart} from "../../redux/cartReducer";
+} from "../../store/productReducer";
+import {addProductToCart, removeProductFromCart} from "../../store/cartReducer";
 
 const CategoryProductListContainer = (props) => {
 

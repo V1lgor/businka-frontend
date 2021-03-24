@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {getProductList, getTotalProductCount, setCurrentPage} from "../../redux/productReducer";
+import {getProductList, getTotalProductCount, setCurrentPage} from "../../store/productReducer";
 import ProductList from "./ProductList/ProductList";
-import {addProductToCart, removeProductFromCart} from "../../redux/cartReducer";
+import {addProductToCart, removeProductFromCart} from "../../store/cartReducer";
 
 const CatalogContainer = (props) => {
     useEffect(props.getProductList, [props.currentPage]);

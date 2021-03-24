@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import OrderPage from "./OrderPage";
-import {disableCartPreview} from "../../../redux/cartReducer";
+import {disableCartPreview} from "../../../store/cartReducer";
 import {connect} from "react-redux";
-import {getRegionList} from "../../../redux/orderReducer";
+import {getRegionList} from "../../../store/orderReducer";
 
 const OrderPageContainer = (props) => {
     console.log(props);

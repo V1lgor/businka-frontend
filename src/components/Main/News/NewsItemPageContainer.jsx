@@ -1,7 +1,7 @@
 import NewsItemPage from "./NewsItemPage";
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {getNewsItemById} from "../../../redux/newsReducer";
+import {getNewsItemById} from "../../../store/newsReducer";
 
 const NewsItemPageContainer = (props) => {
 

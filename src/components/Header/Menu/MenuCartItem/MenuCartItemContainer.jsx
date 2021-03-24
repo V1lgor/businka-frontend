@@ -1,7 +1,7 @@
 import React from "react";
 import MenuCartItem from "./MenuCartItem";
 import {connect} from "react-redux";
-import {clearCart, toggleCartPreview} from "../../../../redux/cartReducer";
+import {clearCart, toggleCartPreview} from "../../../../store/cartReducer";
 
 const MenuCartItemContainer = (props) => {
 
