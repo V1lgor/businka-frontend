@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes';
 
 export const pushNotification = (text, notificationType) => {
     return {
-        type: actionTypes.PUSH_NOTIFICATION,
+        type: actionTypes.PUSH_NOTIFICATION_TO_QUEUE,
         text,
         notificationType
     };
@@ -10,7 +10,7 @@ export const pushNotification = (text, notificationType) => {
 
 export const popNotification = () => {
     return {
-        type: actionTypes.POP_NOTIFICATION
+        type: actionTypes.POP_NOTIFICATION_FROM_QUEUE
     }
 }
 

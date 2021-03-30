@@ -6,37 +6,30 @@ import {CSSTransition} from "react-transition-group";
 
 const PopUpNotification = (props) => {
 
-    const classList = [styles.Notification];
+    const cssClassList = [styles.Notification];
 
     switch (props.type) {
         case "success": {
-            classList.push(styles.Success);
+            cssClassList.push(styles.Success);
             break;
         }
         case "error": {
-            classList.push(styles.Error);
+            cssClassList.push(styles.Error);
             break;
         }
         case "normal": {
-            classList.push(styles.Normal);
+            cssClassList.push(styles.Normal);
             break;
         }
         default: {
-            classList.push(styles.Normal);
+            cssClassList.push(styles.Normal);
             break;
         }
-
     }
 
-    useEffect(() => {
-        return () => {
-            console.log("UNMOUNTING");
-        }
-    }, [])
-
     return (
-        <CSSTransition in={props.visible} timeout={500} appear unmountOnExit classNames={"fade"} onExit={() => console.log("exited")}>
-            <div className={classList.join(' ')}>
+        <CSSTransition in={props.isVisible} timeout={500} appear unmountOnExit classNames={"fade"}>
+            <div className={cssClassList.join(' ')}>
                 {props.text}
             </div>
         </CSSTransition>
@@ -45,7 +38,8 @@ const PopUpNotification = (props) => {
 
 PopUpNotification.propTypes = {
     text: PropTypes.string.isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
+    isVisible: PropTypes.bool
 };
 
 export default PopUpNotification;

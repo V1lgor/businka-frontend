@@ -13,8 +13,8 @@ const CategoryTable = (props) => {
                 <th>Название</th>
                 <th>Родительская категория</th>
             </tr>
-            {props.categoryList.ids.map(categoryId => {
-                const category = props.categoryList.categories[categoryId];
+            {props.categoryList.idList.map(categoryId => {
+                const category = props.categoryList.byId[categoryId];
                 return <CategoryRow key={categoryId} id={categoryId} name={category.name}
                                     parentCategory={category.parentCategory}
                                     onCategoryDelete={props.onCategoryDelete}/>

@@ -5,31 +5,32 @@ import produce from "immer";
 let currentId = 0;
 
 const initialState = {
-    notificationList: []
+    notificationQueue: []
 };
 
 const notificationReducer = (state = initialState, action) => {
+    console.log(action);
     switch (action.type) {
-        case actionTypes.PUSH_NOTIFICATION: {
+        case actionTypes.PUSH_NOTIFICATION_TO_QUEUE: {
             return produce(state, (draftState) => {
-                draftState.notificationList.push({
+                draftState.notificationQueue.push({
                     text: action.text,
                     type: action.notificationType,
                     id: currentId++,
-                    visible: true
+                    isVisible: true
                 })
             });
         }
-        case actionTypes.POP_NOTIFICATION: {
+        case actionTypes.POP_NOTIFICATION_FROM_QUEUE: {
             return produce(state, (draftState) => {
-                draftState.notificationList.shift();
+                draftState.notificationQueue.shift();
             });
         }
         case actionTypes.HIDE_FIRST_NOTIFICATION: {
             return produce(state, (draftState) => {
-                for (let notification of draftState.notificationList) {
-                    if (notification.visible) {
-                        notification.visible = false;
+                for (let notification of draftState.notificationQueue) {
+                    if (notification.isVisible) {
+                        notification.isVisible = false;
                         break;
                     }
                 }

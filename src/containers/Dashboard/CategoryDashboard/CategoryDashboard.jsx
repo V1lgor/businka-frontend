@@ -1,50 +1,50 @@
 import React, {useEffect, useState} from 'react';
-
-import * as actions from '../../../store/actions';
+import {connect} from "react-redux";
 
 import styles from './CategoryDashboard.module.css';
 
-import {connect} from "react-redux";
+import * as actions from '../../../store/actions';
+
+import NotificationContainer from "../../NotificationContainer/NotificationContainer";
+
 import CategoryTable from "../../../components/Dashboard/CategoryTable/CategoryTable";
 import CategoryDeleteWarning from "../../../components/Dashboard/CategoryDeleteWarning/CategoryDeleteWarning";
 import Modal from "../../../components/UI/Modal/Modal";
-import PopUpNotification from "../../../components/UI/PopUpNotification/PopUpNotification";
-import NotificationContainer from "../../NotificationContainer/NotificationContainer";
-import Button from "../../../components/UI/Button/Button";
 
-const CategoryDashboard = (props) => {
+const CategoryDashboard = ({loadCategoryList, onCategoryDelete, categoryList}) => {
+
     useEffect(() => {
-        props.loadCategoryList()
-    }, []);
+        loadCategoryList()
+    }, [loadCategoryList]);
 
-    const [showDeleteWarning, setShowDeleteWarning] = useState(false);
-    const [categoryIdToDelete, setCategoryIdToDelete] = useState(0);
+    const [isDeleteWarningVisible, setDeleteWarningVisible] = useState(false);
+    const [categoryIdToBeDeleted, setCategoryIdToBeDeleted] = useState(0);
 
-    const startCategoryDelete = (categoryId) => {
-        setShowDeleteWarning(true);
-        setCategoryIdToDelete(categoryId);
+    const handleDeleteCategoryButtonClick = (categoryId) => {
+        setDeleteWarningVisible(true);
+        setCategoryIdToBeDeleted(categoryId);
     }
 
-    const cancelCategoryDelete = () => {
-        setShowDeleteWarning(false);
-        setCategoryIdToDelete(0);
+    const handleCategoryDeletionCancel = () => {
+        setDeleteWarningVisible(false);
+        setCategoryIdToBeDeleted(0);
     }
 
-    const deleteCategory = () => {
-        props.onCategoryDelete(categoryIdToDelete);
-        props.loadCategoryList();
-        cancelCategoryDelete();
+    const handleCategoryDeletionConfirm = () => {
+        onCategoryDelete(categoryIdToBeDeleted);
+        loadCategoryList();
+        handleCategoryDeletionCancel();
     }
 
     let deleteWarningModal = null;
 
-    if (showDeleteWarning) {
-        const category = props.categoryList.categories[categoryIdToDelete];
+    if (isDeleteWarningVisible) {
+        const categoryToBeDeleted = categoryList.byId[categoryIdToBeDeleted];
         deleteWarningModal =
-            <Modal onBackdropClick={cancelCategoryDelete} width={"auto"}>
-                <CategoryDeleteWarning categoryName={category.name}
-                                       onDeleteConfirm={deleteCategory}
-                                       onDeleteCancel={cancelCategoryDelete}/>
+            <Modal onBackdropClick={handleCategoryDeletionCancel} width={"auto"}>
+                <CategoryDeleteWarning categoryName={categoryToBeDeleted.name}
+                                       onDeleteConfirm={handleCategoryDeletionConfirm}
+                                       onDeleteCancel={handleCategoryDeletionCancel}/>
             </Modal>
     }
 
@@ -53,8 +53,7 @@ const CategoryDashboard = (props) => {
             {deleteWarningModal}
             <NotificationContainer/>
             <h1>Просмотр списка категорий</h1>
-            <Button text={"Добавить уведомление"} onClick={() => props.pushNotification("Fuck you", "success")}/>
-            <CategoryTable categoryList={props.categoryList} onCategoryDelete={startCategoryDelete}/>
+            <CategoryTable categoryList={categoryList} onCategoryDelete={handleDeleteCategoryButtonClick}/>
         </div>
     );
 };
@@ -68,8 +67,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         loadCategoryList: () => dispatch(actions.loadCategoryList()),
-        onCategoryDelete: (categoryId) => dispatch(actions.deleteCategory(categoryId)),
-        pushNotification: (text, type) => dispatch(actions.pushNotificationWithTimeout(text, type))
+        onCategoryDelete: (categoryId) => dispatch(actions.deleteCategory(categoryId))
     };
 };
 

@@ -5,8 +5,8 @@ import {Category} from "../entity/productEntity";
 
 const initialState = {
     categoryList: {
-        categories: [],
-        ids: []
+        byId: {},
+        idList: []
     }
 };
 
@@ -16,8 +16,8 @@ const categoryReducer = (state = initialState, action) => {
             return produce(state, (draftState) => {
                 const normalizedCategoryList = normalize(action.categoryList, [Category])
                 draftState.categoryList = {
-                    categories: normalizedCategoryList.entities.category,
-                    ids: normalizedCategoryList.result
+                    byId: normalizedCategoryList.entities.category,
+                    idList: normalizedCategoryList.result
                 }
             })
         default:
